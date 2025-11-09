@@ -12,4 +12,10 @@ class Solution:
         s = " ".join(n)
         return s
 
-        
+
+# class Solution:
+#     def reverseWords(self, s: str) -> str:
+#         n = s.split()        # split on any whitespace, removes empty strings
+#         n.reverse()          # reverse the list
+#         s = " ".join(n)      # join back with a single space
+#         return s
