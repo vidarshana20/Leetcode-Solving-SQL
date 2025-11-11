@@ -1,29 +1,30 @@
 class Solution:
     def compress(self, chars: List[str]) -> int:
-        i = 0
-        write = 0
         n = len(chars)
+        write = 0      # index to write compressed output
+        read = 0       # index to scan input
 
-        while i < n:
-            ch = chars[i]
+        while read < n:
+            ch = chars[read]
             count = 0
 
-            # count this consecutive group only
-            while i < n and chars[i] == ch:
-                i += 1
+            # count consecutive occurrences of chars[read]
+            while read < n and chars[read] == ch:
+                read += 1
                 count += 1
 
             # write the character
             chars[write] = ch
             write += 1
 
-            # write the count (split into digits) if > 1
+            # write the count digits if > 1
             if count > 1:
-                for d in str(count):
+                for d in str(count):      # handles multi-digit counts: 12 -> '1','2'
                     chars[write] = d
                     write += 1
 
         return write
+
 
 # class Solution:
 #     def compress(self, chars: List[str]) -> int:
